@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SiteController!{% endblock %}
+
+{% block body %}
+<div class="container vert mt-5 mb-5">
+    <div class="row">
+        <h1 class="col-12 text-center">Inscription </h1>
+        <div class="co-12 mt-5 mb-5 text-center">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <p><button type="submit">S'inscrire</button></p>
+            {{ form_end(form) }}
+        </div>
+
+
+{% endblock %}

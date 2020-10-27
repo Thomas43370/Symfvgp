@@ -1,0 +1,37 @@
+{% extends 'Espace-Client.html.twig' %}
+
+{% block title %}{{ titre }}{% endblock %}
+
+{% block body %}
+
+<div class="container mt-5 pt-5">
+    <div class="row">
+        <div class="col-12 mt-5 pt-5 text-center">
+            {% if commentaire|default is empty %}
+            {% else %}
+                <p class="mt-5 mb-5">{{ commentaire }}</p>
+            {% endif %}
+            {% if form is defined %}
+                {{ form_start(form) }}
+
+                {{ form_widget(form) }}
+
+                {{ form_end(form) }}
+            {% else %}
+                <p class="mt-5">{{ com }}</p>
+            {% endif %}
+            {% if Ajouter is defined %}
+                {% if Ajouter[0] is defined %}
+
+                {% else %}
+                    <p><a href="{{ path( Ajouter.Ajouteradresse ) }}">{{ Ajouter.Titre }}</a></p>
+                {% endif %}
+
+            {% endif %}
+            {% if retour is defined %}
+                <p><a href="{{ path(retour) }}">Retour</a></p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <h1 class="col-12 text-center">Connexion</h1>
+
+        <form action="{{ path('security_login') }}" method="post" class="col-8 offset-2 mt-5 pt-5 mb-5 vert">
+            <input type="text" placeholder="adresse email" required name="_username"/>
+            <input type="password" placeholder="Votre mot de passe" required name="_password"/>
+            <button type="submit">Valider</button>
+        </form>
+    </div>
+</div>
+ {% if app.user %}
+    <p>You are logged in as {{ app.user.username }}    </p>
+ {% endif %}
+
+{% endblock %}

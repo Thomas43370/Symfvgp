@@ -1,0 +1,81 @@
+$(document).ready(function(){
+    $('#lienvgp').click(function(){
+        if($('.ssmenuvgp').css('display')=='none'){
+             $('.ssmenuvgp').fadeIn();
+         }else{
+             $('.ssmenuvgp').fadeOut();
+         }
+    }); 
+    $('#lienclients').click(function(){
+        console.log($('.ssmenuclients').css('display'));
+        if($('.ssmenuclients').css('display')=='none'){
+             $('.ssmenuclients').fadeIn();
+         }else{
+             $('.ssmenuclients').fadeOut();
+         }
+    }); 
+    $('#lienquest').click(function(){
+        console.log($('.ssmenuquest').css('display'));
+        if($('.ssmenuquest').css('display')=='none'){
+             $('.ssmenuquest').fadeIn();
+         }else{
+             $('.ssmenuquest').fadeOut();
+         }
+    }); 
+    $('#lienachats').click(function(){
+       if($('.ssmenuachat').css('display')=='none'){
+            $('.ssmenuachat').fadeIn();
+        }else{
+            $('.ssmenuachat').fadeOut();
+        }
+   }); 
+});
+$('#MenuHamburger').ready(function(){
+    $('#hamb').click(function(){
+        $('.ssmenu').fadeOut();
+        if($('#sousmenuClient').css('display')=='none'){
+            $('#sousmenuClient').css('display', 'block');
+        }else{
+            $('#sousmenuClient').css('display', 'none');
+        }
+    })
+    $('#lienvgp2').click(function(){
+        $('.ssmenu').fadeOut();
+        //console.log($('.ssmenuvgp').css('display'));
+        if($('.ssmenuvgp2').css('display')=='none'){
+             $('.ssmenuvgp2').fadeIn();
+         }else{
+             $('.ssmenuvgp2').fadeOut();
+         }
+    }); 
+    $('#lienclients2').click(function(){
+        $('.ssmenu').fadeOut();
+        if($('.ssmenuclients2').css('display')=='none'){
+             $('.ssmenuclients2').fadeIn();
+         }else{
+             $('.ssmenuclients2').fadeOut();
+         }
+    }); 
+    $('#lienachats2').click(function(){
+        $('.ssmenu').fadeOut();
+       if($('.ssmenuachat2').css('display')=='none'){
+            $('.ssmenuachat2').fadeIn();
+        }else{
+            $('.ssmenuachat2').fadeOut();
+        }
+   }); 
+    $('#lienquest2').click(function(){
+        $('.ssmenu').fadeOut();
+        if($('.ssmenuquest2').css('display')=='none'){
+             $('.ssmenuquest2').fadeIn();
+         }else{
+             $('.ssmenuquest2').fadeOut();
+         }
+    }); 
+    $('#quitter').click(function(){
+        $('#depart').fadeIn();
+    })
+});
+
+
+

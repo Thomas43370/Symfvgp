@@ -1,0 +1,114 @@
+{% extends 'rapportcomplet.html.twig' %}
+
+{% block title %}Hello RapportController!{% endblock %}
+
+{% block body %}
+<div class="container">
+    <form action="{{ path('Espace-Client_RapportAjRecapitulatif') }}" method="post" class="row>">
+        <div class="col-8 offset-2 text-center">
+            <table class="mt-5 mb-5 vert pl-5 pr-5 text-center">
+                <tr>
+                    <td class="mt-5 mb-5 vert pl-5 pr-5">
+                        <p class="mr-5 ml-5"> La Marque: {{ marque.marque }}</p>
+                    </td>
+                    <td class="mt-5 mb-5 vert pl-5 pr-5">
+                        <p class="mr-5 ml-5"> Le Modèle : {{ modele.modele }}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="mt-5 mb-5 vert pl-5 pr-5">
+                        <p class="mr-5 ml-5"> L'Energie': {{ nrj.Energie }}</p>
+                    </td>
+                    <td class="mt-5 mb-5 vert pl-5 pr-5">
+                        <p class="mr-5 ml-5"> Le Client : {{ client.societe }}</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        {% if info.image != false %}
+           <p class="text-center"><img src="{{ asset('uploads/photo/'~ info.image) }}" /></p>
+        {% elseif info.Texte != false %}
+            <p class="text-center">{{ info.Texte}}</p>
+        {% endif %}
+        {# La Synthèse#}
+        <div class="vert col-12 pt-5 pb-5">
+            {% if vgp.synthese is same as(NULL) %}
+            <p class="text-center">
+                La Synthèse du rapport : <select name="synthese" required>
+                    <option value="">Faites votre choix de synthèse</option> 
+                    <option value="1">(MACHINE>Les vérifications et essais de fonctionnement [...] n'ont pas revelé d'anomalies ou de défectuosités.</option> 
+                    <option value="2">(MACHINE>Les vérifications et essais de fonctionnement [...] n'ont pas révélé d'anomalies ou de défectuosités majeures mais une intervention est nécessaire. Se référer aux observations figurant sur le récapitulatif.</option> 
+                    <option value="3">(MACHINE)Les vérifications et essais de fonctionnement [...] ont révélé des anomalies ou défectuosit&eacute;s_majeures pouvant compromettre l'utilisation en sécurité de cette machine.Il conviendra de procéder à la levée de ces observations au plus vite.</option> 
+                    <option value="4">(EQUIPEMENT)Les vérifications et essais de fonctionnement de cet équipement[...] n'ont pas revelé d'anomalies ou de défectuosités.</option>
+                    <option value="5">(EQUIPEMENT)Les vérifications et essais de fonctionnement de cet équipement[...] n'ont pas révélé d'anomalies ou de défectuosités majeures mais une intervention est nécessaire. Se référer aux observations figurant sur le récapitulatif.</option> 
+                    <option value="6">(EQUIPEMENT)Les vérifications et essais de fonctionnement de cet équipement[...] ont révélé des anomalies ou défectuosit&eacute;s_majeures pouvant compromettre l'utilisation en sécurité de cette machine.Il conviendra de procéder à la levée de ces observations au plus vite.</option> 
+                </select>
+            </p>
+            {% else %}
+                <p class="text-center">La synthese</p>
+                <p class="">{{ info.synthese }} </p>
+            {% endif %}
+        </div>
+        {# L'avis du controleur#}
+        <div class="vert col-12 pt-5 pb-5 mt-3 mb-3">
+            {% if vgp.avis is same as(NULL) %}
+            <p class="text-center">
+                L'avis du contrôleur : <select name="avis" required>
+                    <option value="">Votre Avis</option> 
+                    <option value="1">Cette machine peut être maintenue en activité.</option> 
+                    <option value="2">Cette machine DOIT être arrêtée.</option> 
+                    <option value="3">Cet équipement peut être maintenu en activité.</option>
+                    <option value="4">Cet équipement doit être réformé.</option>
+                </select>
+            </p>
+            {% else %}
+                <p class="text-center">L'avis du controleur</p>
+                <p class="text-center">{{ info.avis }}</p>
+            {% endif %}
+        </div>
+        <div class="vert col-12 pt-5 pb-5 mt-3 mb-3">
+            {% if vgp.ResultatEssais is same as(NULL) %}
+                <p class="text-center">
+                    Le résultat des essais de fonctionnement : <br/><input type="radio" name="resultat_essai" value="bon" required /> BON - <input type="radio" name="resultat_essai" value="mauvais" required /> MAUVAIS - <input type="radio" name="resultat_essai" value="nc" required/> NON CONCERNE
+                </p>
+            
+            {% else %}
+                <p class="text-center">resultat des essais de fontionnement: {{ vgp.ResultatEssais}}</p>
+            {% endif %}
+        </div>
+        <div class="vert col-12 pt-5 pb-5 mt-3 mb-3">
+            {% if vgp.ResultatEtat is same as(NULL) %}
+                <p class="text-center">
+                    Le résultat de l'état de conservation : <br /><input type="radio" name="resultat_etat" value="bon" required /> BON - <input type="radio" name="resultat_etat" value="mauvais" required /> MAUVAIS - <input type="radio" name="resultat_etat" value="nc" required/> NON CONCERNE
+                </p>
+            {% else %}
+                <p class="text-center">Le résultat de l'état de conservation : {{ vgp.ResultatEtat}}</p>
+            {% endif %}
+        </div>
+        <div class="vert col-12 pt-5 pb-5 mt-3 mb-3">
+            {% if vgp.ResultatLim is same as(NULL) %}
+                <p class="text-center ">
+                    Le résultat du Limiteur de Surcharge : <br /><input type="radio" name="resultat_lim" value="bon" required /> BON - <input type="radio" name="resultat_lim" value="mauvais" required /> MAUVAIS - <input type="radio" name="resultat_lim" value="nc" required/> NON CONCERNE
+                </p>
+            
+            {% else %}
+                <p class="text-center">resultat du Limiteur de Surcharge: {{ vgp.ResultatLim}}</p>
+            {% endif %}
+        </div>
+        <p class="col-12 text-center"><button type="submit">Valider</button></p>
+    </form>
+    {% if menu=='ok' %}
+        <div class="row">
+            <div class="col-4 mt-5 mb-5 pt-5 pb-5">
+                <p><a href="{{ path('') }} " >Modifier les informations du vehicule</a></p>
+            </div>
+            <div class="col-4 mt-5 mb-5 pt-5 pb-5">
+                <p><a href="{{ path('') }} " >Modifier les informations du questionnaire</a></p>
+            </div>
+            <div class="col-4 mt-5 mb-5 pt-5 pb-5">
+                <p><a href="{{ path('Espace-Client_Pdf') }} " >Lancer le pdf</a></p>
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

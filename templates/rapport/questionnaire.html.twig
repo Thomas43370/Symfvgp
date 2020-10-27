@@ -1,0 +1,37 @@
+{% extends 'rapportcomplet.html.twig' %}
+
+{% block title %}Le Rapport!{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <form action="/Espace-Client/GestionFormQuestionnaire" method="post" class="row">
+            <table class="col-12" id="questionnaire">
+                <tr>
+                    <td class="question text-center">Question</td>
+                        <td class="etat text-center">Etat de l'engin</td>
+                        <td class="verif">Type de vérification</td>
+                        <td class="ajcom"></td>
+                </tr>
+            {% for lettre, value in question %}
+                {% set i=1 %}
+                <tr>
+                    <td colspan="4"><p class="titre">Titre {{ lettre }} : {{ value.titre.Titre }}</p></td>
+                </tr>
+                {% for item in value.question %}
+                    <tr class="pt-5">
+                        <td class="question vert">{{ lettre ~ i }} : {{ item.Question }}</td>
+                        <td class="etat container"><div class="row"><p class="col-6 col-md-4 col-lg-3"><input type="radio" name="etat-{{ lettre ~ i }}" value="be" checked="checked" /> Bon Etat </p><p class="col-6 col-md-4 col-lg-3"> <input type="radio"name="etat-{{ lettre ~ i }}" value="E.M"/> Etat Moyen </p><p class="col-6 col-md-4 col-lg-3"> <input type="radio" name="etat-{{ lettre ~ i }}" value="M.E"/> Mauvais Etat </p><p class="col-6 col-md-4 col-lg-3"><input type="radio" name="etat-{{ lettre ~ i }}" value="N.C"/> Non Concerné</p></div></td>
+                        <td class="verif text-center vert">{{item.verif}}</td>
+                        <td class="ajcom"><a href="javascript:void(0);" id="{{ lettre ~ i }}" class="ajcomclick">Ajouter un formulaire</a></td>
+                    </tr>
+                    <tr class="aveugle" id="com{{ lettre ~ i }}">
+                        <td colspan="4"><input type="text" name="comm-{{ lettre ~ i }}" placeholder="Votre commentaire ( il est facultatif" /></td>
+                    <tr>
+                    {% set i= i + 1 %}
+                {% endfor %}
+            {% endfor %}
+            </table>
+            <p class="col-12 text-center"><button type="submit">Valider</button></p>
+        </form>
+    </div>
+{% endblock %}

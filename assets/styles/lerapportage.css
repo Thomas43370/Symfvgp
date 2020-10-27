@@ -1,0 +1,49 @@
+.titre{
+    margin:30px;
+}
+.question{
+    width: 30%;
+}
+.etat{
+    width: 30%;
+}
+.verif{
+    width: 10%;
+}
+.ajcom{
+    width: 30%;
+}
+.vert{
+    background-color: #115758; color:#fff;
+}
+.Rapportvert{
+    background-color: #115758; color:#fff;
+    Border:1px solid #fff;
+}
+.vert p{
+    font-size:16px;
+    font-family:"Raleway"
+}
+input .com{
+    width:100%,
+}
+.aveugle{
+    display: none;
+}
+.vert a{
+    color:#fff;
+}
+.vert a:hover{
+    color:#61d466;
+    text-decoration: none;
+}
+button{
+    background-color: #115758; color:#fff;
+    Border:1px solid #fff;
+    padding: 15px 25px;
+    border-radius: 25px;
+}
+button:hover{
+    background-color:#61d466;
+    text-decoration: none;
+}

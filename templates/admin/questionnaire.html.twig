@@ -1,0 +1,27 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+    <form id="questionnnaire" class="container vert" action="{{ path('adminAjoutQuestionnaire') }}" method="post">
+        <div class="row">
+            <div class="col-12">
+                <input type="hidden" id="regle" name="regle" value="{{ regle }}" />
+                {% for letter in 'a'|upper..'z'|upper %}
+                    {% if letter>'F' %}
+                        <div class="col-12 aveugle" id="{{ letter }}" >
+                    {% else %}
+                        <div class="col-12" id="{{ letter }}" >
+                    {% endif %}
+                            <p>titre-{{ letter }} : <select name="titre-{{ letter }}" class="titrage" title="{{ letter }}" id="titre{{ letter }}"></select></p>
+                            <div id="tableau{{ letter }}"></div>
+                        </div>
+                    
+                {% endfor %}
+            </div>
+            <p class="col-12 text-center mt-5 mb-5"><a href="javascript:void(0);" id="affTitre">Afficher plus de titres</a></p>
+            <p class="col-12 text-center mt-5 mb-5"><button type="submit">Valider</button></p>
+        </div>
+    </form>
+    
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+<div class="container vert mt-5 mb-5">
+    <div class="row">
+        <h1 class="col-12 text-center">QUE FAIRE ?</h1>
+        <div class="col-12 mt-5 mb-5">
+            <p class="mt-5 mb-5"> <a href=" {{ path('adminAjTitre') }}" alt="Ajouter un titre">Ajouter Un Titre</a></p>
+            <p class="mt-5 mb-5"> <a href=" {{ path('adminAjQuestion') }}" alt="Ajouter une question">Ajouter Une Question</a></p>
+            <p class="mt-5 mb-5"> <a href=" {{ path('adminAjProposition') }}" alt="Ajouter une proposition">Ajouter Une Proposition</a></p>
+            <p class="mt-5 mb-5"> <a href=" {{ path('adminPropositions_Equipement') }}" alt="Ajouter une proposition">Ajouter Une Proposition d'Equipement</a></p>
+            <p class="mt-5 mb-5"> <a href=" {{ path('adminAjFormulaire') }}" alt="Ajouter un form">Ajouter Un Formulaire</a></p>
+            <p class="mt-5 mb-5"> <a href=" {{ path('adminAjRegle') }}" alt="Ajouter une regle">Ajouter Une Règle</a></p>
+            <p class="mt-5 mb-5"> <a href=" {{ path('adminAjCategorie') }}" alt="Ajouter une categorie">AjouterUne Catégorie</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

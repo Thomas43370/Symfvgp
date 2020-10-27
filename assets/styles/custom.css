@@ -1,0 +1,31 @@
+*{margin:0;padding:0;box-sizing:border-box}
+p{
+    font-size:16px;
+    font-family:Raleway
+}
+.rouge{
+    color:red
+}
+.asterix{
+    font-size:32px;
+    font-weight:bolder
+}
+.bordroitblc{
+    border-right:1px solid #fff
+}
+.vert{
+    background-color: #115758; color:#fff;
+}
+.aveugle{
+    display: none;
+}
+.vert a{
+    color:#fff;
+}
+.vert a:hover{
+    color:#61d466;
+    text-decoration: none;
+}
+.js-datepicker{
+    width:200%;
+}

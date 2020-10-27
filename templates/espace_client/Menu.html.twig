@@ -1,0 +1,112 @@
+<header class="container-fluid menu">
+    <div class="row">
+        <div class="col-4 col-md-2  col-md-1 offset-md-1 hidden-lg-down" >
+            <a href="{{ path('Espace-Client') }}" title="retour a l'Espace Client du site les-vgp-faciles.fr">
+                <img src="img/vgp_logo2_header.png" alt="logo des vgp faciles" class="hidden-lg-down" width="auto" height="75"/>
+                <img src="img/favicon.png" alt="logo des vgp faciles" class="hidden-xl-up pl-3" width="auto" height="75"/>
+            </a>
+        </div>
+        <nav class="col-lg-9 col-xl-8 offset-xl-1 hidden-lg-down container" id="MenuClassique">
+            <ul class="row">
+                <li class="col-3">
+                    <a href="#" title="retour à l'accueil" id="lienvgp">Les VGP</a>
+                        <ul class="ssmenuvgp">
+                            <p class="pl-xl-4 pt-3 pb-2"><a href="{{ path('Espace-CLient_DonneesMembres') }}" title="Les options">Mon profil</a></p>
+                            <p class="pl-4 pt-3 pb-2"><a href="{{ path('Espace-Client_Prepa') }}" title="Nouvelle VGP">Nouvelle VGP</a></p>
+                            <p class="pl-4 pt-3 pb-2"><a href="Espace-Client-prepa_Reprise.html" title="Reprendre une ancienne VGP">Reprendre une VGP</a></p>
+                            <p class="pl-4 pt-3 pb-2"><a href="Espace-Client-MesRapports.html" title="Mes Rapports VGP">Afficher mes rapports</a></p>
+                            <p class="pl-4 pt-3 "><a href="Espace-Client-MonCalendrier.html" title="Mon planning">Le Calendrier</a></p>
+                        </ul>
+                </li>
+                <li class="col-3">
+                    <a href="#" title="acces membres"  id="lienclients">Vos CLIENTS</a>
+                        <ul class="ssmenuclients">
+                            <p class="pl-4 pt-3 pb-3"><a href="{{ path('Espace-Client_Clients_Ajouter') }}" title="Ajout d'un client">Ajouter un Client</a></p>
+                            <p class="pl-4 pt-3 pb-3"><a href="{{ path('Espace-Client_Clients_Choisir', {'action': 'Modifier'}) }}" title="Modifier un client">Modifier  un Client</a></p>
+                            <p class="pl-4 pt-3 pb-3"><a href="{{ path('Espace-Client_Clients_Choisir', {'action': 'Supprimer'}) }}" title="Supprimer un client">Supprimer un Client</a></p>
+                        </ul>
+                </li>
+                <li class="col-3">
+                    <a href="#" title="acces-rapport"  id="lienachats">Vos ACHATS</a>
+                        <ul class="ssmenuachat">
+                            <p class="pl-4 pt-3 pb-3"><a href="" title="le reste de vos achats">Votre Compte</a></p>
+                            <p class="pl-4 pt-3 pb-3"><a href="" title="Acheter une VGP">Acheter une VGP</a></p>
+                            <p class="pl-4 pt-3 pb-3"><a href="" title="Acheter un abonnement">Acheter un Abonnement</a></p>
+                            <p class="pl-4 pt-3 pb-3"><a href="" title="Afficher vos factures">Vos Factures</a></p>
+                            
+                        </ul>
+                </li>
+                <!--<li class="col-3">
+                    <a href="#" title="acces membres" id="lienquest">Formulaires/Questions</a>
+                        <ul class="ssmenuquest">
+                            <p class="pt-3 pl-4"><a href="Espace-Client-Commun-index-Formulaire.html" title="Nouveau formulaire">Ajouter/Modifier un formulaire</a></p>
+                            <p class="pt-3 pl-4"><a href="Espace-Client-Commun-index-Questionnaire.html" title="Nouveau questionnaire">Ajouter/Modifier un questionnaire</a></p>
+                            <p class="pl-4"><a href="Espace-Client-accueil-index.html" title="Nouvelle VGP">Afficher mes rapports</a></p>
+                            <p class="pl-4"><a href="Espace-Client-accueil-index.html" title="Nouvelle VGP">Le programme</a></p>
+                        </ul>
+                </li>-->
+                <li class="col-12" style="float:right;"><a href="{{ path('security_logout') }}" id="quitter" title="Quitter l\'espace client"></a></li>
+            </ul>
+        </nav>
+        <div class="col-4 text-center hidden-xl-up aveugle" >
+            <a href="Espace-Client.html" title="retour a l'Espace Client du site les-vgp-faciles.fr">
+                <img src="img/vgp_logo2_header.png" alt="logo des vgp faciles" class="hidden-lg-down" width="auto" height="120"/>
+                <img src="img/favicon.png" alt="logo des vgp faciles" class="hidden-xl-up pl-3" width="auto" height="75"/>
+            </a>
+        </div>
+        <div class="col-6 hidden-xl-up" >
+                    <p class="pt-1 pb-1 droite"><a href="#" id="hamb"><img src="img/hamb.png" alt="logo du menu hamaburger" /></a><p>
+        </div>
+        <div class="col-2 offset-2 droite pt-3 hidden-xl-up" ><a href="#" id="quitter" title="Quitter l\'espace client"></a></div>
+        <!--Menu Hamburger-->
+        
+        <div class="container-fluid aveugle" id="sousmenuClient">
+            <div class="row">
+                <div class="col-12 container">
+                    <ul class="row">
+                        <li class="col-6 pl-5 pr-3 mr-5 mt-5">
+                            <a href="#" title="retour à l'accueil" id="lienvgp2" class="pl-3pr-3">Les VGP</a>
+                                <ul class="ssmenuvgp2 ssmenu">
+                                    <p class="pl-xl-4 pt-3 pb-2"><a href="Espace-Client-Profil-index.html" title="Les options">Mon profil</a></p>
+                                    <p class="pl-4 pt-3 pb-2"><a href="Espace-Client-Commun-index-Prepa.html" title="Nouvelle VGP">Nouvelle VGP</a></p>
+                                    <p class="pl-4 pt-3 pb-2"><a href="Espace-Client-Commun-index-Prepa-Reprise.html" title="Reprendre une ancienne VGP">Reprendre une VGP</a></p>
+                                    <p class="pl-4 pt-3 pb-2"><a href="Espace-Client-Profil-AffichRapports.html" title="Mes Rapports VGP">Afficher mes rapports</a></p>
+                                    <p class="pl-4 pt-3 "><a href="Espace-Client-MonCalendrier.html" title="Mon planning">Le Calendrier</a></p>
+                                </ul>
+                        </li>
+                        <li class="col-6 pl-5 mr-5 mt-5">
+                            <a href="#" title="acces membres"  id="lienclients2">Vos CLIENTS</a>
+                                <ul class="ssmenuclients2 ssmenu">
+                                    <p class="pl-4 pt-3 pb-3"><a href="Espace-Client-Clients-index.html" title="Ajout d'un client">Ajouter un Client</a></p>
+                                    <p class="pl-4 pt-3 pb-3"><a href="Espace-Client-Clients-ModifierClients.html" title="Modifier un client">Modifier  un Client</a></p>
+                                    <p class="pl-4 pt-3 pb-3"><a href="Espace-Client-Clients-ModifierClients-Supprimer.html" title="Supprimer un client">Supprimer un Client</a></p>
+                                </ul>
+                        </li>
+                        <li class="col-6 pl-5 mr-5 mt-5 mb-5">
+                            <a href="#" title="acces membres" id="lienachats2">Vos ACHATS</a>
+                                <ul class="ssmenuachat2 ssmenu">
+                                    <p class="pl-4 pt-3 pb-3"><a href="Espace-Client-CompteClient-Decompte.html" title="le reste de vos achats">Vos achats</a></p>
+                                    <p class="pl-4 pt-3 pb-3"><a href="Espace-Client-CompteClient-MenuAchatVgp.html" title="Acheter une VGP">Acheter une VGP</a></p>
+                                    <p class="pl-4 pt-3 pb-3"><a href="Espace-Client-CompteClient-MenuAchatAbonnement.html" title="Acheter un abonnement">Acheter un Abonnement</a></p>
+                                    <p class="pl-4 pt-3 pb-3"><a href="Espace-Client-CompteClient-MesFactures-index.html" title="Afficher vos factures">Vos Factures</a></p>
+                                </ul>
+                        </li>
+                        <!--<li class="col-6 pl-5 mr-5 mt-5">
+                            <a href="#" title="acces membres" id="lienquest2">Formulaires/ Questions</a>
+                                <ul class="ssmenuquest2 ssmenu">
+                                    <p class="pl-2 pt-3 pb-3"><a href="Espace-Client-FORMULAIRES-Reglementation-index.html" title="Nouvelle VGP">Ajouter/Modifier un formulaire</a></p>
+                                    <p class="pt-3 pl-4"><a href="Espace-Client-FORMULAIRES-Reglementation-index-question.html" title="Nouveau questionnaire">Ajouter/Modifier un questionnaire</a></p>
+                            
+                                    <p class="pl-4"><a href="Espace-Client-accueil-index.html" title="Nouvelle VGP">Afficher mes rapports</a></p>
+                                    <p class="pl-4"><a href="Espace-Client-accueil-index.html" title="Nouvelle VGP">Le programme</a></p>
+                                </ul>
+                        </li>-->
+
+                        <!--<li class="col-12" style="float:right;"><a href="home.html" title="Quitter l\'espace client" >Deconnexion</a></li>-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AjaxAdminController!{% endblock %}
+
+{% block body %}
+{% for temporaire in temp %}
+    {% if temporaire.titre is defined %}
+        <p>{{ temporaire.titre }}</p>
+    {% else %}
+        <p>{{ temporaire.question }}</p>   
+    {% endif %}
+{% endfor %}
+{% endblock %}

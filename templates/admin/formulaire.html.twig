@@ -1,0 +1,53 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+    <div class="container-fluid" id="ajForm">
+        <form class="row vert" action="{{ path('adminConfirmAjFormulaire') }}" method="post">
+            <h1 class="col-12 text-center">Creer un Formulaire</h1>
+            <p class="col-12 text-center mt-5 chapeau">Le nom du formulaire</p>
+            <p class="col-12 text-center mb-5"><input type="text" name="nom" required /></p>
+            <p class="col-12 text-center mt-5 chapeau">Un commentaire ?  <input type="text" name="commentaire" /></p>
+            <p class="col-6 text-center mt-5 chapeau">Engin prévu pour le levage : <input type="radio"  required name="levage" value="true" /> OUI - <input type="radio" required name="levage" value="false" /> NON </p>
+            <p class="col-6 text-center mt-5 chapeau">La durée de validité du rapport ( en mois ) : <span id="dur"><input type="radio" name="duree" value="12" class="dur" required /> 12 mois - <input type="radio" name="duree" value="6" class="dur" required /> 6 mois - </span><span id="Autreduree"><input type="radio" name="duree" id="Autres" required /> Autres </span></p>
+            <p class="col-12 mt-5 text-center chapeau">Faut-il un questionnaire : </p>
+            <p class="col-12 mb-5 text-center"><input type="radio"  required name="questionnaire" value="true" /> OUI - <input type="radio" required name="questionnaire" value="false" /> NON </p>
+            {% if propositionco is defined %}
+                <div class="col-12 container-fluid">
+                    <div class="row" id="FormAjaxForm">
+                        <p class="col-7 offset-3 mt-5 chapeau mb-5">L'engin</p>
+                        {% for propos in propositionco %}    
+                            <div class="col-6 col-md-4 col-lg-3 mr-3"><input type="checkbox" name="Commun-{{ propos.id }}" value="oui" /> {{ propos.proposition}}</div>
+                        {% endfor %}
+                        <p class="col-12 text-center mt-5 mb-5"><input type="checkbox" id="valideCheckForm" /> COCHER TOUTES LES CASES DE L'ENGIN</p>
+                </div>
+            {% endif %}
+            {% if propositionle is not null %}
+                <div class="col-12 container-fluid">
+                    <div class="row" id="FormAjaxLev">
+                        <p class="col-7 offset-3 mt-5 chapeau mb-5">Le levage</p>
+                        {% for propos in propositionle %}
+                            <div class="col-6 col-md-4 col-lg-3 mr-3"><input type="checkbox" name="Levage-{{ propos.id }}" value="oui" /> {{ propos.proposition}}</div>
+                        {% endfor %}
+                        <p class="col-12 text-center mt-5 mb-5"><input type="checkbox" id="valideCheckLev" /> COCHER TOUTES LES CASES DU LEVAGE</p>
+                    </div>
+                </div>
+            {% endif %}
+            {% if propositioneq is not null %}
+                <div class="col-12 container-fluid">
+                    <div class="row" id="FormAjaxEqui">
+                        <p class="col-7 offset-3 mt-5 pt-5 chapeau mb-5">Les équipements</p>
+                        {% for propos in propositioneq %}
+                            <div class="col-6 col-md-4 col-lg-3 mr-3"><input type="checkbox" name="Equipement-{{ propos.id }}" value="oui" /> {{ propos.proposition}}</div>
+                        {% endfor %}
+                         <p class="col-12 text-center mt-5 mb-5"><input type="checkbox" id="valideCheckEqui" /> COCHER TOUS LES EQUIPEMENTS</p>
+                    </div>
+                </div>
+            {% endif %}
+            <p class="col-12 text-center mt-5 mb-5"><button type="submit" class="btn-btn-primary">Creer</button></p>
+            <p class="col-12 text-center mt-5 mb-5"><a href="{{ path('admin') }}" class="btn-btn-primary">Retour</button></p>
+        </form>
+    </div>
+    
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends 'rapportcomplet.html.twig' %}
+
+{% block title %}Le Rapport!{% endblock %}
+
+{% block body %}
+    <div class="container-fluid vert">
+        <form class="row" action="{{ path('Espace-Client_GestionRapport') }}" method="post">
+            <input type="hidden" name="duree" value="{{ fromulaire.duree }}" />
+            <input type="hidden" name="questionnaire" value="{{ fromulaire.questionnaire }}" />
+            {% if donnees.Commun is defined %}
+                <p class="col-12 text-center mt-5 pt-5 chapeau">LE MATERIEL</p> 
+<!--numserie-->                
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 vert mt-5 mb-5 pl-5 pr-5 ">
+                    <p>Le numéro de série : <input type="text" name="numserie" value="" required /></p>
+                </div>
+<!--datevrif-->            
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 vert mt-5 mb-5 pl-5 pr-5">
+                    <p>La date de vérification : <br /><input type="text" class="js-datepicker"  placeholder="jj/mm/yyyy" name="dateverif" size="30" required /></p>
+                </div>
+<!--VGP-->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 vert mt-5 mb-5 pl-5 pr-5 ">
+                    <p>Le type de rapport : <select name="vgp" required>
+                        <option value="">Faites votre choix</option>
+                        <option value="1">Vérification Générale Périodique</option>
+                        <option value="2">Vérification Générale de Mise en Service</option>
+                        <option value="3">Vérification Générale de Remise en Service</option>
+                    </select></p>
+                </div>
+<!--lieu-->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 vert mt-5 mb-5 pl-5 pr-5 ">
+                    <p>Le lieu de vérification : <input type="text" name="lieu" required></p>
+                </div>
+                <input type="hidden" name="commun" value="commun" />
+                {% for items in donnees.Commun %}
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 vert mt-5 mb-5 pl-5 pr-5 ">
+                    {% if items.type=="text" %}
+                    <p class="">
+                        {{ items.proposition }} : <br /><input type="text" name="{{ items.id }}" required/>  
+                        {% if items.unitevaleur is defined %}
+                            {{ items.unitevaleur }}
+                        {% endif %}
+                    </p>
+                    {% endif %}
+                </div>
+                {% endfor %}                
+            {% endif %}
+            {% if donnees.Levage is defined %}
+                <p class="col-12 mt-5 pt-5 chapeau">LE LEVAGE<input type="hidden" name="levage" value="levage" /></p> 
+                {% for items in donnees.Levage %}
+                <div class="col-12 col-sm-6 col-lg-3 col-md-4 pl-5 pr-5 mr-2 ml-2">
+                    {% if items.type=="text" %}
+                    <p>
+                        {{ items.proposition }} : <input type="text" name="{{ items.id }}" required />  
+                        {% if items.compo is defined %}
+                            {{ items.compo }}
+                        {% endif %}
+                    </p>
+                    {% endif %}
+                </div>
+                {% endfor %}                
+            {% endif %}
+            {% if donnees.Equipement is defined %}
+                <p class="col-12 mt-5 chapeau">LES EQUIPEMENTS<input type="hidden" name="equi" value="equi" /></p> 
+                {% for items in donnees.Equipement %}
+                <div class="col-12 col-sm-6 col-lg-3 col-md-4 mr-2 ml-2 mt-5 mb-5 vert">
+                    <p class="mt-5 mb-5 ">
+                        {{ items.proposition }}<input type="hidden" name="{{ items.id }}" value="{{ items.id }}" />
+                    </p>
+                    <p > {{ items.Equipement.item1 }}  : <input type="text" name="{{ items.id }}-item-1" required/>
+                    {% if items.Equipement.compo1 is defined %} {{ items.Equipement.compo1 }} {% endif %}</p>
+                    {% if items.Equipement.item2 is defined %}
+                        <p > {{ items.Equipement.item2 }} : <input type="text" name="{{ items.id }}-item-2" />
+                        {% if items.Equipement.compo2 is defined %} {{ items.Equipement.compo2 }} {% endif %}</p>
+                    {% endif %}
+                    {% if items.Equipement.item3 is defined %}
+                        <p > {{ items.Equipement.item3 }} : <input type="text" name="{{ items.id }}-item-3" />
+                        {% if items.Equipement.compo3 is defined %} {{ items.Equipement.compo3 }} {% endif %}</p>
+                    {% endif %}
+                    {% if items.Equipement.item4 is defined %}
+                        <p > {{ items.Equipement.item4 }} : <input type="text" name="{{ items.id }}-item-4" />
+                            {% if items.Equipement.compo4 is defined %} {{ items.Equipement.compo4 }} {% endif %}
+                        </p>
+                    {% endif %}
+                    {% if items.Equipement.item5 is defined %}
+                        <p > {{ items.Equipement.item5 }} : <input type="text" name="{{ items.id }}-item-5" />
+                            {% if items.Equipement.compo5 is defined %} {{ items.Equipement.compo5 }} {% endif %}
+                        </p>
+                    {% endif %}
+                    {% if items.Equipement.item6 is defined %}
+                        <p > {{ items.Equipement.item6 }} : <input type="text" name="{{ items.id }}-item-6" />
+                            {% if items.Equipement.compo6 is defined %} {{ items.Equipement.compo6 }} {% endif %}
+                        </p>
+                    {% endif %}
+                    {% if items.Equipement.item7 is defined %}
+                        <p > {{ items.Equipement.item7 }} : <input type="text" name="{{ items.id }}-item-7" />
+                            {% if items.Equipement.compo7 is defined %} {{ items.Equipement.compo7 }} {% endif %}
+                        </p>
+                    {% endif %}
+                    {% if items.equipement.item8 is defined %}
+                        <p > {{ items.Equipement.item8 }} : <input type="text" name="{{ items.id }}-item-8" /></p>
+                        {% if items.Equipement.compo8 is defined %} {{ items.Equipement.compo8 }} {% endif %}
+                    {% endif %}
+                </div>
+                {% endfor %}  
+            {% endif %} 
+             <p class="col-12 text-center"><button type="submit">Enregistrer</button></p>
+        </form>
+    </div>
+{% endblock %}

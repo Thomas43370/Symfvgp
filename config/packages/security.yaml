@@ -1,15 +1,31 @@
 security:
+    encoders:
+        App\Entity\LesvgpUsers:
+            algorithm: bcrypt
+
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        users_in_memory: { memory: null }
+        #admin_in_memory: { memory: null }
+        in_database: 
+            entity:
+                class: App\Entity\LesvgpUsers
+                property: email
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
             anonymous: true
-            lazy: true
-            provider: users_in_memory
+
+            provider: in_database
+
+            form_login:
+                login_path: security_login
+                check_path: security_login
+                
+            logout:
+                path: security_logout
+                target: Home
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
@@ -20,5 +36,10 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/VIP, roles: ROLE_VIP }
+        - { path: ^/Espace-Client, roles: ROLE_USER }
+
+    role_hierarchy:
+        ROLE_VIP: ROLE_USER
+        ROLE_ADMIN: ROLE_VIP

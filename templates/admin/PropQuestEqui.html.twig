@@ -1,0 +1,30 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Ajouter un équipement{% endblock %}
+
+{% block body %}
+    <div class="container mt-5 pt-5 vert">
+        <div class="row">
+            <h1 class="col-12 text-center">Ajouter une proposition à l'équipement</h1>
+            <form class="col-12 vert" action="{{ path('adminEnregistrePropositions_Equipement') }}" method="post" id="ajEqPropos">
+                <p class="mt-5 pt-5 contenuForm">Le nom de l'équipement<input type="text" required name="Nomequipement" id="" /></p>
+                <div class="mt-5 mb-5 contenuForm" >
+                    <p class="mt-5 pt-5">item1<input type="text" name="item1" id="item1" required  />L'unité de valeur : <input type="text" name="compo1" style="width:10%;" class="ml-5 uv" placeholder="facultatif" /></p>
+                    <p class="mt-5 pt-5">item2<input type="text" name="item2" id="item2" />L'unité de valeur : <input type="text" name="compo2" alt="uv" class="ml-5 uv" style="width:10%;" placeholder="facultatif" /></p>
+                    <p class="mt-5 pt-5">item3<input type="text" name="item3" id="item3" />L'unité de valeur : <input type="text" name="compo3" alt="uv" style="width:10%;" class="ml-5 uv" placeholder="facultatif" /></p>
+                    <p class="mt-5 pt-5">item4<input type="text" name="item4" id="item4" />L'unité de valeur : <input type="text" name="compo4" alt="uv" class="ml-5 uv" style="width:10%;" placeholder="facultatif" /></p>
+                    <p class="mt-5 pt-5">item5<input type="text" name="item5" id="item5" />L'unité de valeur : <input type="text" name="compo5" alt="uv" class="ml-5 uv" style="width:10%;" placeholder="facultatif" /></p>
+                    <p class="mt-5 pt-5">item6<input type="text" name="item6" id="item6" />L'unité de valeur : <input type="text" name="compo6" alt="uv" class="ml-5 uv" style="width:10%;" placeholder="facultatif" /></p>
+                    <p class="mt-5 pt-5">item7<input type="text" name="item7" id="item7" />L'unité de valeur : <input type="text" name="compo7" alt="uv" class="ml-5 uv" style="width:10%;" placeholder="facultatif" /></p>
+                    <p class="mt-5 pt-5 mb-5">item8<input type="text" name="item8" id="item8" />L'unité de valeur : <input type="text" name="compo8" class="ml-5 uv" style="width:10%;" placeholder="facultatif" /></p>
+                    <p class="mt-5 pt-5 mb-5 text-center"><!--<a href="#" id="afficheSuite"> Ajouter </a>--><button type="submit">Valider</button></p>
+                </div>
+                <div id="Resume" class="aveugle vert">
+                    <div id="Resume2" class="vert"></div>
+                    <p class="text-center"><button type="submit">Ajouter</button>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+{% endblock %}

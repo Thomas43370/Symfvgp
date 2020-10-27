@@ -1,0 +1,18 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+<div class="container vert mt-5 mb-5">
+    <div class="row">
+        <h1 class="col-12 mt-5 mb-5 text-center">{{ titre }}</h1>
+        <div class="col-8 offset-2">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <p class="text-center"><button type="submit">Valider</button>
+            {{ form_end(form) }}
+            <p class="mt-5 mb-5 text-center"><a href=" {{ path('admin') }} ">Retour</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

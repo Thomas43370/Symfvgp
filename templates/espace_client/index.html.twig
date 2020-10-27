@@ -1,0 +1,20 @@
+{% extends 'Espace-Client.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+<div class="container mt-5 pt-5 ">
+    <div class="row">
+        <div class="col-12 mt-5">
+            {% if form is defined %}
+                {{form_start(form) }}
+                {{ form_widget(form) }}
+                <p class="mt-5 mb-5 text-center"><button type="submit" class=" btn btn-success">Valider</button></p>
+                {{ form_end(form) }}
+            {% else %}
+                <h1>BIENVENUE {{ NomSociete }} DANS VOTRE ESPACE-CLIENT</h1>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
